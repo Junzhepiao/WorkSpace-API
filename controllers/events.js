@@ -21,7 +21,12 @@ module.exports = {
     },
   
     postEvent:(req,res)=>{
-        knex('events').insert(req.body).then(()=>{
+        knex('events').insert({
+            user_id: Number(req.body.user_id),
+            title: req.body.title,
+            time: req.body.time,
+            date: req.body.date
+        }).then(()=>{
             knex('events').then(events=>res.json(events))
         })
         .catch(err=>{

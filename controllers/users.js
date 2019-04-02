@@ -32,7 +32,18 @@ module.exports = {
             //                 )
             //        }
             //    })
-            knex('users').insert(req.body)
+            knex('users').insert({
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                password: req.body.password,
+                role: req.body.role,
+                phone: req.body.phone,
+                img_url: req.body.img_url,
+                sick_hours: 40,
+                vacation_hours: 80,
+                active: true
+            })
             // .then(()=>{
             //   knex('users').where('email',req.body.email).then(users => res.json(users))
             // })
@@ -103,6 +114,7 @@ module.exports = {
     },
 
     updateUser(req, res) {
+        console.log('params', req.params)
         knex('users')
           .where('id', req.params.uid)
           .update(req.body)

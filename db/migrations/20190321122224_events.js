@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
         .notNullable();
         table.string('title');
         table.string('date');
+        table.string('time');
         table.timestamps(true,true);
       })
 };

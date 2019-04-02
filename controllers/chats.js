@@ -21,7 +21,10 @@ module.exports = {
     },
   
     postChat:(req,res)=>{
-        knex('chats').insert(req.body).then(()=>{
+        knex('chats').insert({
+            user_id: Number(req.body.user_id),
+            content: req.body.chat
+        }).then(()=>{
             knex('chats').then(chats=>res.json(chats))
         })
         .catch(err=>{

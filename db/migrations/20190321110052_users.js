@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
         table.string('password');
         table.string('role');
         table.string('img_url')
-        table.integer('phone');
+        table.string('phone');
         table.integer('sick_hours');
         table.integer('vacation_hours');
         table.boolean('active');
