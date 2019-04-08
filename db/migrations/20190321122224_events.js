@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
         table.string('title');
         table.string('date');
         table.string('time');
+        table.integer('duration')
         table.timestamps(true,true);
       })
 };

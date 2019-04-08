@@ -25,7 +25,8 @@ module.exports = {
             user_id: Number(req.body.user_id),
             title: req.body.title,
             time: req.body.time,
-            date: req.body.date
+            date: req.body.date,
+            duration:req.body.duration
         }).then(()=>{
             knex('events').then(events=>res.json(events))
         })

@@ -114,7 +114,6 @@ module.exports = {
     },
 
     updateUser(req, res) {
-        console.log('params', req.params)
         knex('users')
           .where('id', req.params.uid)
           .update(req.body)
